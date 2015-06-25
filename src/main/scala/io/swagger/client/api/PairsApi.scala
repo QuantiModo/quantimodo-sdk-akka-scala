@@ -11,7 +11,8 @@ object PairsApi {
    * Pairs cause measurements with effect measurements grouped over the duration of action after the onset delay.
    * 
    * Expected answers:
-   *   code 401 : Seq[Pairs] (Not Authenticated)
+   *   code 200 : Seq[Pairs] (Successful operation)
+   *   code 401 :  (Not Authenticated)
    * 
    * @param cause Original variable name for the explanatory or independent variable
    * @param causeSource Name of data source that the cause measurements should come from
@@ -24,8 +25,8 @@ object PairsApi {
    * @param endTime The most recent date (in epoch time) for which we should return measurements
    * @param startTime The earliest date (in epoch time) for which we should return measurements
    */
-  def pairsGet(cause: String, causeSource: Option[String] = None, causeUnit: Option[String] = None, delay: Option[String] = None, duration: Option[String] = None, effect: String, effectSource: Option[String] = None, effectUnit: Option[String] = None, endTime: Option[String] = None, startTime: Option[String] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, "https://localhost/api", "/pairs", "application/json")
+  def pairsGet(cause: String, causeSource: Option[String] = None, causeUnit: Option[String] = None, delay: Option[String] = None, duration: Option[String] = None, effect: String, effectSource: Option[String] = None, effectUnit: Option[String] = None, endTime: Option[String] = None, startTime: Option[String] = None): ApiRequest[Seq[Pairs]] =
+    ApiRequest[Seq[Pairs]](ApiMethods.GET, "https://localhost/api", "/pairs", "application/json")
       .withQueryParam("cause", cause)
       .withQueryParam("causeSource", causeSource)
       .withQueryParam("causeUnit", causeUnit)
@@ -36,7 +37,8 @@ object PairsApi {
       .withQueryParam("effectUnit", effectUnit)
       .withQueryParam("endTime", endTime)
       .withQueryParam("startTime", startTime)
-      .withErrorResponse[Seq[Pairs]](401)
+      .withSuccessResponse[Seq[Pairs]](200)
+      .withErrorResponse[Unit](401)
       
 
 

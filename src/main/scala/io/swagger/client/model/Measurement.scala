@@ -11,12 +11,14 @@ case class Measurement (
   source: String,
   /* Timestamp for the measurement event in epoch time */
   timestamp: Long,
-  /* Measurement value */
+  /* Converted measurement value in requested unit */
   value: Double,
-  /* Unit of Measurement */
+  /* Unit of measurement as requested in GET request */
   unit: String,
-  /* Optional note supplied with the measurement. Can be up to 255 characters in length. */
-  note: Option[String])
+  /* Measurement value in the unit as orignally submitted */
+  storedValue: Option[Double],
+  /* Unit of measurement as originally submitted */
+  storedUnit: Option[String])
    extends ApiModel
 
 

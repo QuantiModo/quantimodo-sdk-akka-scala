@@ -14,11 +14,13 @@ object UserApi {
    * Returns user info for the currently authenticated user.
    * 
    * Expected answers:
-   *   code 401 : Seq[User] (Not Authenticated)
+   *   code 200 : User (Successful operation)
+   *   code 401 :  (Not Authenticated)
    */
-  def userMeGet(): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, "https://localhost/api", "/user/me", "application/json")
-      .withErrorResponse[Seq[User]](401)
+  def userMeGet(): ApiRequest[User] =
+    ApiRequest[User](ApiMethods.GET, "https://localhost/api", "/user/me", "application/json")
+      .withSuccessResponse[User](200)
+      .withErrorResponse[Unit](401)
       
   /**
    * Get user tokens for existing users, create new users
