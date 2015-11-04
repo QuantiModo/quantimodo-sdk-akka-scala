@@ -4,11 +4,15 @@ import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
 
 
-case class UnitCategory (
+case class MeasurementExport (
   /* id */
   id: Option[Int],
-  /* Unit category name */
-  name: String,
+  /* ID of User */
+  userId: Option[Int],
+  /* Status of Measurement Export */
+  status: Option[String],
+  /* Error message */
+  errorMessage: Option[String],
   /* created_at */
   createdAt: Option[DateTime],
   /* updated_at */

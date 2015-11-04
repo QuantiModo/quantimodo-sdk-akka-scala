@@ -6,7 +6,7 @@ import org.joda.time.DateTime
 
 case class Connector (
   /* Connector ID number */
-  id: Int,
+  id: Option[Int],
   /* Connector lowercase system name */
   name: String,
   /* Connector pretty display name */
@@ -15,16 +15,14 @@ case class Connector (
   image: String,
   /* URL to a site where one can get this device or application */
   getItUrl: String,
-  /* True if the authenticated user has this connector enabled */
-  connected: String,
-  /* URL and parameters used when connecting to a service */
-  connectInstructions: String,
-  /* Epoch timestamp of last sync */
-  lastUpdate: Int,
-  /* Number of measurements obtained during latest update */
-  latestData: Int,
-  /* True if user has no measurements for this connector */
-  noDataYet: Boolean)
+  /* Short description */
+  shortDescription: String,
+  /* Long description */
+  longDescription: String,
+  /* enabled */
+  enabled: Boolean,
+  /* oauth */
+  oauth: Boolean)
    extends ApiModel
 
 

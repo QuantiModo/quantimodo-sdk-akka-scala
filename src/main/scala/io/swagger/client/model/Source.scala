@@ -4,10 +4,12 @@ import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
 
 
-case class UnitCategory (
+case class Source (
   /* id */
   id: Option[Int],
-  /* Unit category name */
+  /* client_id */
+  clientId: Option[String],
+  /* Name of the application or device */
   name: String,
   /* created_at */
   createdAt: Option[DateTime],

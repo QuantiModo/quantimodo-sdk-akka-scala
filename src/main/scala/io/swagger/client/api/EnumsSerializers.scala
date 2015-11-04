@@ -6,12 +6,7 @@ import scala.reflect.ClassTag
 
 object EnumsSerializers {
 
-  def all = Seq[Serializer[_]]() :+
-    new EnumNameSerializer(ConversionStepEnums.Operation) :+
-    new EnumNameSerializer(MeasurementSetEnums.CombinationOperation) :+
-    new EnumNameSerializer(UnitEnums.Category) :+
-    new EnumNameSerializer(VariableEnums.CombinationOperation) :+
-    new EnumNameSerializer(VariableNewEnums.CombinationOperation)
+  def all = Seq[Serializer[_]]()
 
 
 

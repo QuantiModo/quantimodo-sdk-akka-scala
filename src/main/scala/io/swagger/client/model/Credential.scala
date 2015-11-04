@@ -4,11 +4,13 @@ import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
 
 
-case class UnitCategory (
-  /* id */
-  id: Option[Int],
-  /* Unit category name */
-  name: String,
+case class Credential (
+  /* connector_id */
+  connectorId: Int,
+  /* attr_key */
+  attrKey: Option[String],
+  /* attr_value */
+  attrValue: Option[String],
   /* created_at */
   createdAt: Option[DateTime],
   /* updated_at */

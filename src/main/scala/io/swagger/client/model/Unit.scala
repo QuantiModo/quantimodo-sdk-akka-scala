@@ -5,38 +5,32 @@ import org.joda.time.DateTime
 
 
 case class Unit (
+  /* id */
+  id: Option[Int],
+  /* client_id */
+  clientId: Option[String],
   /* Unit name */
   name: String,
   /* Unit abbreviation */
   abbreviatedName: String,
-  /* Unit category */
-  category: UnitEnums.Category,
+  /* Unit category ID */
+  categoryId: Int,
   /* Unit minimum value */
-  minimum: Double,
+  minimumValue: Option[Float],
   /* Unit maximum value */
-  maximum: Double,
-  /* Conversion steps list */
-  conversionSteps: Seq[ConversionStep])
+  maximumValue: Option[Float],
+  /* updated */
+  updated: Option[Int],
+  /* ID of default unit */
+  defaultUnitId: Option[Int],
+  /* Value multiplied to */
+  multiply: Option[Float],
+  /* Value which should be added to convert to default unit */
+  add: Option[Float],
+  /* created_at */
+  createdAt: Option[DateTime],
+  /* updated_at */
+  updatedAt: Option[DateTime])
    extends ApiModel
 
-object UnitEnums {
-
-  type Category = Category.Value
-  
-  object Category extends Enumeration {
-    val Distance = Value("Distance")
-    val Duration = Value("Duration")
-    val Energy = Value("Energy")
-    val Frequency = Value("Frequency")
-    val Miscellany = Value("Miscellany")
-    val Pressure = Value("Pressure")
-    val Proportion = Value("Proportion")
-    val Rating = Value("Rating")
-    val Temperature = Value("Temperature")
-    val Volume = Value("Volume")
-    val Weight = Value("Weight")
-  }
-
-  
-}
 
