@@ -73,7 +73,7 @@ object MeasurementApi {
       .withSuccessResponse[Inline_response_200_11](200)
       
   /**
-   * Get Measurements CSV
+   * Download a CSV containing all user measurements
    * 
    * Expected answers:
    *   code 200 : File (successful operation)
@@ -83,7 +83,7 @@ object MeasurementApi {
       .withSuccessResponse[File](200)
       
   /**
-   * Post Request for Measurements CSV
+   * Use this endpoint to schedule a CSV export containing all user measurements to be emailed to the user within 24 hours.
    * 
    * Expected answers:
    *   code 200 : Int (successful operation)
